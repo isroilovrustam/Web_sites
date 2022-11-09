@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Profillar -->
+    <h1 class="text-center mt-4" id="Profil">
+        PROFILLAR <br>
+        <span class="line-2"></span>
+    </h1>
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-3 mx-4 text-center">
+            <a href="#" class="text-decoration-none text-center">
+                <img src="{% static 'img/github.svg' %}" width="22px">
+                <b class="ml-2" style="color: black;font-size: 22px;">GitHub</b>
+            </a><br>
+            <p class="mt-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa, nobis nam ?</p>
+        </div>
+        <div class="col-md-3 mx-4 text-center">
+            <a href="#" class="text-decoration-none text-center">
+                <img src="{% static 'img/layers-half.svg' %}" width="22px">
+                <b class="ml-2" style="color: black;font-size: 22px;">LeetCode</b>
+            </a><br>
+            <p class="mt-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa, nobis nam ?</p>
+        </div>
+        <div class="col-md-3 mx-4 text-center">
+            <a href="#" class="text-decoration-none text-center">
+                <img src="{% static 'img/tablet.svg' %}" width="22px">
+                <b class="ml-2" style="color: black;font-size: 22px;">Telefon</b>
+            </a><br>
+            <p class="mt-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa, nobis nam ?</p>
+        </div>
+        <br><br>
+        <div class="col-md-3 mx-4 mt-4 text-center">
+            <a href="#" class="text-decoration-none text-center">
+                <img src="{% static 'img/youtube.svg' %}" width="22px">
+                <b class="ml-2" style="color: black;font-size: 22px;">YouTube</b>
+            </a><br>
+            <p class="mt-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa, nobis nam ?</p>
+        </div>
+        <br><br>
+        <div class="col-md-3 mx-4 mt-4 text-center">
+            <a href="#" class="text-decoration-none text-center">
+                <img src="{% static 'img/facebook.svg' %}" width="22px">
+                <b class="ml-2" style="color: black;font-size: 22px;">Facebook</b>
+            </a><br>
+            <p class="mt-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa, nobis nam ?</p>
+        </div>
+    </div>
+    <!-- /Profillar -->
+    <br><br><br>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+ <!-- Contact -->
+    <div class="row justify-content-center mt-4" style="background-color: #f5f5f5; height: 90vh;" id="Contact">
+        <div class="col-12 mt-4">
+            <h1 class="text-center mt-4"> CONTACT <br>
+                <span class="line-2"></span>
+            </h1>
+        </div>
+        <div class="col-md-6 text-center">
+            <span style="font-size: 20px;">Tashkent, Uzbekistan</span><br>
+            <a href="#" class="">
+                <img src="{% static 'img/telephone-fill.svg' %}" alt="">
+                +998940501202 <br>
+                <img src="{% static 'img/envelope.svg' %}" alt="">
+                Telegram..
+            </a>
+        </div>
+        <div class="col-10 col-sm-8 col-md-6 col-lg-5 p-0">
+            <form method="post" class="d-flex flex-wrap justify-content-between">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-info form-control my-4">CONTACT US</button>
+            </form>
+        </div>
+    </div>
+<!-- /Contact -->
+{% endblock %}
