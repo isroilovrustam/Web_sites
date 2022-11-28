@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+{% load crispy_forms_tags %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AbRuIs.uz</title>
+    <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <!-- <link rel="stylesheet" href="styles/navbar.css"> -->
+    <!-- <link rel="stylesheet" href="styles/style.css"> -->
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/shared.css' %}">
+    <!-- <link rel="stylesheet" href="css/animate.css"> -->
+
+    <link rel="stylesheet" href="{% static 'css_2/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css_2/owl.theme.default.min.css' %}">
+</head>
+<body>
+<div class="slider-item" style="height: 100vh; margin-top: 0px;" data-stellar-background-ratio="1">
+    <img src="{% static 'img/signup.jpeg' %}" class="w-100 h-100" style=" position: absolute;">
+    <div class="overlay"></div>
+    <div class="container-fluid p-0 img">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand d-flex align-items-end" href="?page=main">
+                <h1 class="display-6 font-weight-bold">Ab<span class="text-warning">Ru</span>Is</h1>
+            </a>
+            <div class=" col-2 offset-md-6 offset-sm-5">
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav mt-2 mt-lg-0 d-flex w-100">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item p-2 position-relative">
+                            <a class="nav-link menu-item text-white" href="/">{{user.username}}!</a>
+                        </li>
+                        <li>
+                            <a class="nav-link menu-item text-white" href="{% url 'logout' %}">Chiqish!</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-primary" href="{% url 'login' %}"><h5>KIRISH</h5></a>
+                        </li>
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-primary" href="/#Home"><h5>ORQAGA</h5></a>
+                        </li>
+                        <!--                    {% endif %}-->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid p-0 img">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-5 offset-sm-2 offset-md-0 p-5 rounded-lg">
+                    <form action="{% url 'signup' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {% if messages %}
+                            {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}" role="alert">
+                                {{ message }}
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                            <label>
+                                <b class="text-white">Username</b>
+                            </label><br>
+                            <input type="name" class="form-control" required placeholder="Username"
+                                   name="username"
+                                   autocomplete="off">
+                            <br>
+                            <label>
+                                <b class="text-white">Tel number </b>
+                            </label>
+                            <input type="number" class="form-control" placeholder="Phone number" name="tel"
+                                   autocomplete="off">
+                            <br>
+<!--                            <label>-->
+<!--                                <b class="text-white">Email</b>-->
+<!--                            </label>-->
+<!--                            <input type="email" class="form-control" required placeholder="Enter your email"-->
+<!--                                   name="email"-->
+<!--                                   autocomplete="off">-->
+<!--                            <br>-->
+                            <label>
+                                <b class="text-white">Password</b>
+                            </label>
+                            <span id="span1"></span>
+                            <input type="password" class="form-control" required placeholder="Password"
+                                   id="inp"
+                                   name="password" autocomplete="off">
+                            <br>
+                            <label>
+                                <b class="text-white">Confirm Password</b>
+                            </label>
+                            <span id="span2"></span>
+                            <input type="password" class="form-control" required placeholder="Confirm Password"
+                                   id="inp2"
+                                   name="password2" autocomplete="off">
+                            <br>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block my-1 rounded-pill" name="btn">
+                            Ro'yxatdan o'tish
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+        function one() {
+            var a = document.getElementById("inp").getAttribute("type");
+            var b = document.getElementById("inp2").getAttribute("type");
+            if (a == "password") {
+                document.getElementById("inp").setAttribute("type", "text")
+            }
+            elseif (b == "password") {
+                document.getElementById("inp2").setAttribute("type", "text")
+            }
+            else {
+                document.getElementById("inp").setAttribute("type", "password")
+            }
+        }
+
+
+
+</script>
+</body>
+
+</html>

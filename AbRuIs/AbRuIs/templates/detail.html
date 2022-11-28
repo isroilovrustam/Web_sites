@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{% load static %}
+<script>window.CKEDITOR_BASEPATH = '/my_static/ckeditor/ckeditor/';</script>
+{{ block.super }}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AbRuIs.uz</title>
+    <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <!-- <link rel="stylesheet" href="styles/navbar.css"> -->
+    <!-- <link rel="stylesheet" href="styles/style.css"> -->
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/shared.css' %}">
+    <!-- <link rel="stylesheet" href="css/animate.css"> -->
+
+    <link rel="stylesheet" href="{% static 'css_2/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css_2/owl.theme.default.min.css' %}">
+</head>
+<body>
+<div class="container-fluid p-0 position-relative">
+    <!--    <div class="row justify-content-center mt-4" style="background-color: #f5f5f5; height: 90vh;">-->
+    <div class="container">
+        <div class="row">
+            <div class="modal-body">
+                <div class="title-bar">
+                    <div class="col-md-12">
+                        <h3 class="text-center">{{ post.title }}</h3>
+                        <div class="heading-border"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6  p-0">
+                        <img class=" w-100" src="{{ post.image.url }}" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mt-4 font-weight-bold text-dark" style="font-size: 19px;">
+                            Isroilov Rustam <br>
+                            <span class="line-3"></span><br>
+                            <b class="text-dark" style="font-size: 15px;">Bugungi kunim:)</b>
+                        </p>
+                        <p>{{ post.text |safe}}</p>
+                        <ul class="list-inline item-details">
+                            <li>Telegram:
+                                <strong>
+                                    <a href="https://t.me/AbRuIs/">@AbRuIs</a>
+                                </strong>
+                            </li>
+                            <li>Instagram:
+                                <strong>
+                                    <a href="https://www.instagram.com/abruis_/">abruis_</a>
+                                </strong>
+                            </li>
+                            <li>Service:
+                                <strong>
+                                    <a href="#">Web Development</a>
+                                </strong>
+                            </li>
+                            <br><br><br>
+                            <a href="/#Post" class="btn btn-outline-primary btn-white" type="submit"
+                               data-dismiss="modal"> X ORQAGA </a><br>
+                        </ul>
+                    </div>
+                    <div class="col-md-12 scrol" style="background-color: #f5f5f5;">
+                        <p class="mt-4 font-weight-bold text-center text-dark" style="font-size: 19px;">Comentlar
+                            <br><span class="line-2"></span><br>
+                            {% for comment in post.comments.all %}
+                        <p class="text-dark" style="background-color: #f5f5f5;">
+                        <h6 style="font-size: 20px;color: #100f0f;">👤️️{{ comment.name }}</h6>
+                        <strong>
+                            <h6><p>💬{{ comment.massage |safe }}</p></h6>
+                        </strong>
+                        </p>
+                        </p>
+                        {% endfor %}
+                    </div>
+                    <div class="col-10 col-sm-8 col-md-6 col-lg-5 p-0">
+                        <form method="post">
+                            {% csrf_token %}
+                            {% if user.is_authenticated %}
+                            <br>
+                            <h3>{{ form.name }}</h3><br>
+                            <h3>{{ form.massage }}</h3>
+                            <button class="btn btn-success">Saqlash</button>
+                            <a href="/#Post" class="btn btn-outline-primary btn-white" type="submit"
+                               data-dismiss="modal"> X ORQAGA </a><br>
+                            {% else %}
+                            <l1>
+                                <h4 class="display-6 font-weight-bold">Coment yozish uchun Ro`yxatdan o'ting 👇</h4>
+                            </l1>
+                            <a href="/accounts/signup/" class="btn btn-success" type="submit"
+                               data-dismiss="modal"> Ro'yxatdan o'tish </a><br>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--        </div>-->
+    </div>
+</div>
+</div>
+</body>
+<!-- <script src="plugin/dist/chart.js"></script> -->
+<!-- <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script> -->
+<script src="{% static 'scripts/jQuery.min.js' %}"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script> -->
+<!-- <script src="scripts/app.js"></script> -->
+
+<script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<!-- <script src="js/jquery.magnific-popup.min.js"></script> -->
+<script src="{% static 'js/aos.js' %}"></script>
+<!-- <script src="js/bootstrap-datepicker.js"></script> -->
+<script src="{% static 'js/scrollax.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>

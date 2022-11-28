@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+{% load static %}
+<script>window.CKEDITOR_BASEPATH = '/my_static/ckeditor/ckeditor/';</script>
+{{ block.super }}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AbRuIs.uz</title>
+    <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <!-- <link rel="stylesheet" href="styles/navbar.css"> -->
+    <!-- <link rel="stylesheet" href="styles/style.css"> -->
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/shared.css' %}">
+    <!-- <link rel="stylesheet" href="css/animate.css"> -->
+
+    <link rel="stylesheet" href="{% static 'css_2/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css_2/owl.theme.default.min.css' %}">
+</head>
+<body>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+<!--     Carousel-->
+<section class="home-slider owl-carousel" id="Home">
+    <div class="slider-item" style="height: 100vh; margin-top: 0px;" data-stellar-background-ratio="1">
+        <img src="{% static 'img/p-31.jpeg' %}" class="w-100 h-100" style=" position: absolute;">
+        <div class="overlay"></div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-wihte ps">
+            <a class="navbar-brand d-flex align-items-end" href="?page=main">
+                <h2 class="display-6 font-weight-bold">Ab<span class="text-warning">Ru</span>Is</h2>
+            </a>
+            <div class=" col-2 offset-md-15 offset-sm-4">
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavId"
+                        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="/">
+                    <ul class="navbar-nav mt-2 mt-lg-20 d-flex w-100">
+                        <li class="nav-item p-2">
+                            <a class="nav-link menu-item text-white" href="#Home"><span class="font-weight-bold">HOME</span></a>
+                        </li>
+                        <li class="nav-item p-2">
+                            <a class="nav-link menu-item text-white active" href="#Post"><span class="font-weight-bold">POSTS</span></a>
+                        </li>
+                        <li class="nav-item p-2">
+                            <a class="nav-link menu-item text-white" href="#Profil"><span class="font-weight-bold">PROFILLAR</span></a>
+                        </li>
+                        <li class="nav-item p-2">
+                            <a class="nav-link menu-item text-white" href="{% url 'info' %}"><span class="font-weight-bold">MA'LUMOTLAR</span></a>
+                        </li>
+                        <li class="nav-item p-2 position-relative">
+                            <a class="nav-link menu-item text-white" href="#Contact"><span class="font-weight-bold">CONTACT</span></a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-primary" href="/"><span class="font-weight-bold">{{user.username}}!</span></a>
+                        </li>
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-danger" href="{% url 'logout1' %}"><span class="font-weight-bold">Chiqish!</span></a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-primary" href="{% url 'login' %}"><span class="font-weight-bold">KIRISH</span></a>
+                        </li>
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-primary" href="{% url 'signup' %}"><span class="font-weight-bold">REGISTER</span></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <!--        <div>-->
+        </nav>
+        <div class="container" style="position: relative;">
+            <div class="row no-gutters slider-text justify-content-center" data-scrollax-parent="true">
+                <div class="col-md-12 text-center text-white mt-5">
+                    <h1 class="display-4 font-weight-bold" style="color:#fff;">Abdumalikovich Rustamjon
+                        Isroilov </h1><br><br>
+                    <span class="line"></span><br><br><br>
+                    <span style="font-size: 22px;color: #fff;">AbRuls Saytiga hush kelibsiz</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slider-item" style="height: 100vh; margin-top: 0px;" data-stellar-background-ratio="1">
+        <img src="{% static 'img/p-03.jpeg' %}" class="w-100 h-120" style=" position: absolute;">
+        <div class="overlay"></div>
+        <nav class="navbar navbar-expand-lg navbar-light  ps">
+            <a class="navbar-brand d-flex align-items-end" href="?page=main">
+                <h2 class="display-6 font-weight-bold">Ab<span class="text-warning">Ru</span>Is</h2>
+            </a>
+            <div class=" col-2 offset-md-15 offset-sm-4">
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavId"
+                        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="">
+                    <ul class="navbar-nav mt-2 mt-lg-20 d-flex w-100">
+                        <li class="nav-item p-2">
+                            <a class="nav-link menu-item text-white" href="#Home"><span class="font-weight-bold">HOME</span></a>
+                        </li>
+                        <li class="nav-item p-2">
+                            <a class="nav-link menu-item text-white active" href="#Post"><span class="font-weight-bold">POSTS</span></a>
+                        </li>
+                        <li class="nav-item p-2">
+                            <a class="nav-link menu-item text-white" href="#Profil"><span class="font-weight-bold">PROFILLAR</span></a>
+                        </li>
+                        <li class="nav-item p-2">
+                            <a class="nav-link menu-item text-white" href="{% url 'info' %}"><span class="font-weight-bold">MA'LUMOTLAR</span></a>
+                        </li>
+                        <li class="nav-item p-2 position-relative">
+                            <a class="nav-link menu-item text-white" href="#Contact"><span class="font-weight-bold">CONTACT</span></a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-primary" href="/"><span class="font-weight-bold">{{user.username}}!</span></a>
+                        </li>
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-danger" href="{% url 'logout1' %}"><span class="font-weight-bold">Chiqish!</span></a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-primary" href="{% url 'login' %}"><span class="font-weight-bold">KIRISH</span></a>
+                        </li>
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-primary" href="{% url 'signup' %}"><span class="font-weight-bold">REGISTER</span></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <!--        <div>-->
+        </nav>
+        <div class="container">
+            <!--            <div class="form-group">-->
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            <div class="row no-gutters slider-text align-items-center justify-content-center"
+                 data-scrollax-parent="true">
+                <div class="col-md-12 text-center text-white mt-5">
+                    <h1 class="display-4 font-weight-bold" style="color:#fff;">Abdumalikovich Rustamjon
+                        Isroilov</h1>
+                    <br><br>
+                    <span class="line"></span><br><br><br>
+                    <span style="font-size: 22px;color: #fff;">AbRuls Saytiga hush kelibsiz</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slider-item" style="height: 100vh; margin-top: 0px;" data-stellar-background-ratio="1">
+        <img src="{% static 'img/p-05.jpeg' %}" class="w-100 h-100" style=" position: absolute;">
+        <div class="overlay"></div>
+        <nav class="navbar navbar-expand-lg navbar-light  ps">
+            <a class="navbar-brand d-flex align-items-end" href="?page=main">
+                <h2 class="display-6 font-weight-bold">Ab<span class="text-warning">Ru</span>Is</h2>
+            </a>
+            <div class=" col-2 offset-md-15 offset-sm-4">
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavId"
+                        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav mt-2 mt-lg-20 d-flex w-100">
+                        <li class="nav-item p-2">
+                            <a class="nav-link menu-item text-white" href="#Home"><span class="font-weight-bold">HOME</span></a>
+                        </li>
+                        <li class="nav-item p-2">
+                            <a class="nav-link menu-item text-white active" href="#Post"><span class="font-weight-bold">POSTS</span></a>
+                        </li>
+                        <li class="nav-item p-2">
+                            <a class="nav-link menu-item text-white" href="#Profil"><span class="font-weight-bold">PROFILLAR</span></a>
+                        </li>
+                        <li class="nav-item p-2">
+                            <a class="nav-link menu-item text-white" href="{% url 'info' %}"><span class="font-weight-bold">MA'LUMOTLAR</span></a>
+                        </li>
+                        <li class="nav-item p-2 position-relative">
+                            <a class="nav-link menu-item text-white" href="#Contact"><span class="font-weight-bold">CONTACT</span></a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-primary" href="/"><span class="font-weight-bold">{{user.username}}!</span></a>
+                        </li>
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-danger" href="{% url 'logout1' %}"><span class="font-weight-bold">Chiqish!</span></a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-primary" href="{% url 'login' %}"><span class="font-weight-bold">KIRISH</span></a>
+                        </li>
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-primary" href="{% url 'signup' %}"><span class="font-weight-bold">REGISTER</span></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <!--        <div>-->
+        </nav>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center"
+                 data-scrollax-parent="true">
+                <div class="col-md-12 text-center text-white mt-5">
+                    <h1 class="display-4 font-weight-bold" style="color:#fff;">Abdumalikovich Rustamjon
+                        Isroilov </h1><br><br>
+                    <span class="line"></span><br><br><br>
+                    <span style="font-size: 22px;color: #050505;">AbRuls Saytiga hush kelibsiz</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Carousel -->
+
+<!-- Post -->
+<h1 class="text-center mt-4" id="Post"> POSTS <br>
+    <span class="line-2"></span>
+</h1>
+<div class="row justify-content-center mt-4">
+    {% for post in object_list %}
+    <div class="col-md-2 text-center hv mx-md-4 p-0 portfolio-item filter finance">
+        <a class="portfolio-link text-d" href="{% url 'detail' post.pk %}" data-toggle="modal">
+            <img src="{{ post.image.url }}" class="w-100">
+            <p class="mt-4 font-weight-bold text-dark" style="font-size: 19px;">
+                Rustamjon Isroilov <br>
+                <span class="line-3"></span><br>
+                <b class="text-dark" style="font-size: 15px;">{{ post.title }}</b>
+            </p>
+            <span class="text-dark">
+            {{ post.summary }}
+          </span>
+            <br><br>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+<div class="row justify-content-center mt-4">
+    <li class="nav-item p-2">
+        <a class="btn btn-primary" href="{% url 'postlar' %}"><span class="font-weight-bold">Barcha postlarni ko`rish &raquo;</span></a>
+    </li>
+    <li class="nav-item p-2">
+        <a class="btn btn-primary" href="/#Home"> X ORQAGA </a>
+    </li>
+</div>
+<!-- /Post -->
+
+
+<br><br><br>
+<!-- Profillar -->
+
+<h1 class="text-center mt-4" id="Profil"> PROFILLAR <br><span class="line-2"></span>
+</h1>
+<br><br><br><br>
+<div class="row justify-content-center mt-4">
+    <div class="col-md-3 mx-4 text-center">
+        <a href="https://github.com/isroilovrustam/" class="text-decoration-none text-center">
+            <img src="{% static 'img/github.svg' %}" width="22px">
+            <b class="ml-2" style="color: #0062cc;font-size: 22px;">GitHub</b>
+        </a><br>
+        <p class="mt-3">GitHub profil. <br> Siz uchun foydali degan umitdaman..</p>
+    </div>
+    <br><br>
+    <div class="col-md-3 mx-4 text-center">
+        <a href="https://leetcode.com/AbRuIs/" class="text-decoration-none text-center">
+            <img src="{% static 'img/layers-half.svg' %}" width="22px">
+            <b class="ml-2" style="color: #0062cc;font-size: 22px;">LeetCode</b>
+        </a><br>
+        <p class="mt-3">LeetCode profil. <br> Siz uchun foydali degan umitdaman..</p>
+    </div>
+    <div class="col-md-3 mx-4 text-center">
+        <a href="https://www.youtube.com/channel/UCG1H3j8U6no-DXVTMt65yrA/"
+           class="text-decoration-none text-center">
+            <img src="{% static 'img/youtube.svg' %}" width="22px">
+            <b class="ml-2" style="color: #0062cc;font-size: 22px;">YouTube</b>
+        </a><br>
+        <p class="mt-3">YouTube kanali. <br> Siz uchun foydali degan umitdaman..</p>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br>
+    <div class="col-md-3 mx-4 mt-4 text-center">
+        <a href="https://www.facebook.com/profile.php?id=100087969003073/" class="text-decoration-none text-center">
+            <img src="{% static 'img/facebook.svg' %}" width="22px">
+            <b class="ml-2" style="color: #0062cc;font-size: 22px;">Facebook</b>
+        </a><br>
+        <p class="mt-3">Facebook profil. <br> Siz uchun foydali degan umitdaman..</p>
+    </div>
+    <br><br>
+    <div class="col-md-3 mx-4 mt-4 text-center">
+        <a href="https://t.me/AbRuIs/" class="text-decoration-none text-center">
+            <img src="{% static 'img/telegram.svg' %}" width="22px">
+            <b class="ml-2" style="color: #0062cc;font-size: 22px;">Telegram</b>
+        </a><br>
+        <p class="mt-3">Telegtram profil. <br> Siz uchun foydali degan umitdaman..</p>
+    </div>
+    <div class="col-md-3 mx-4 mt-4 text-center">
+        <a href="https://www.instagram.com/abruis_/" class="text-decoration-none text-center">
+            <img src="{% static 'img/instagram.svg' %}" width="22px">
+            <b class="ml-2" style="color: #0062cc;font-size: 22px;">Instagram</b>
+        </a><br>
+        <p class="mt-3"> Instagram profil. <br> Siz uchun foydali degan umitdaman..</p>
+    </div>
+    <div class="col-md-3 mx-4 mt-4 text-center">
+        <li>
+            <a class="btn btn-primary" href="/#Home"> X ORQAGA </a>
+        </li>
+    </div>
+    <br><br>
+    <br><br><br><br><br><br><br><br>
+</div>
+<!-- /Profillar -->
+
+<!--    <br><br><br>-->
+<!-- Contact -->
+<div class="slider-item" style="height: 100vh; margin-top: 0px;" data-stellar-background-ratio="1">
+    <img src="{% static 'img/p-08.jpeg' %}" class="w-100 h-100" style=" position: absolute;">
+    <div class="overlay"></div>
+    <div class="container-fluid p-0 img">
+        <div class="row justify-content-center mt-4" style=" height: 100vh;  margin-top: -50px;" id="Contact">
+            <div class="col-12 mt-4">
+                <h1 class="text-center display-4 font-weight-bold" style="color:#fff; font-size: 30px;"> CONTACT <br>
+                    <span class="line-2"></span>
+                </h1>
+            </div>
+            <div class="col-md-6 text-center">
+                <br>
+                <span class="display-4 font-weight-bold" style="color:#C3CAD2; font-size: 30px;">💡 Rustamjon Isroilov - ilm va tajriba ulashamiz! <br>
+                    <br>Biz bilan bog'lanish uchun. 👉<br>
+                    <br>📞 𝗧𝗲𝗹𝗲𝗳𝗼𝗻: +99894 050 12 02</br>
+                    <br>📲 𝗔𝗹𝗼𝗾𝗮: <a href="https://t.me/AbRuIs/"> Telegram </a></span><br>
+                <br><br><br><br><br><br><br><br><br><br><br>
+                <div>
+                    <ur>
+                        <li><span style="color:#fff;">
+                            <p>Sayt asoschisi: Isroilov Rustamjon Abdumalikovich</p>
+                            </span>
+                        </li>
+                    </ur>
+                </div>
+            </div>
+            <div class="col-10 col-sm-8 col-md-6 col-lg-5 p-0">
+                <form method="post" class="d-flex flex-wrap justify-content-between">
+                    {% csrf_token %}
+                    {% if user.is_authenticated %}
+                    <h3>{{ form.name }}</h3><br>
+                    <h3>{{ form.phone }}</h3><br>
+                    {{ form.text }}
+                    <br><br><br><br><br><br><br><br><br><br>
+                    <button class="btn btn-info form-control my-4"> CONTACT US</button>
+                    {% else %}
+                    <h3>{{ form.name }}</h3><br>
+                    <h3>{{ form.phone }}</h3><br>
+                    {{ form.text }}
+                    <br><br><br><br><br><br><br><br><br><br>
+                    <a href="accounts/signup/" class="btn btn-success form-control my-4"> Contact yuborish uchun
+                        Ro`yxatdan oting </a>
+                    {% endif %}
+                </form>
+                <div class="text-center mt-4">
+                    <li>
+                        <a class="btn btn-primary" href="/#Home"> X ORQAGA </a>
+                    </li>
+                </div>
+            </div>
+        </div>
+        <!-- /Contact -->
+    </div>
+</div>
+<!--/Footer-->
+
+<!--/Footer-->
+</body>
+<!-- <script src="plugin/dist/chart.js"></script> -->
+<!-- <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script> -->
+<script src="{% static 'scripts/jQuery.min.js' %}"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script> -->
+<!-- <script src="scripts/app.js"></script> -->
+
+<script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<!-- <script src="js/jquery.magnific-popup.min.js"></script> -->
+<script src="{% static 'js/aos.js' %}"></script>
+<!-- <script src="js/bootstrap-datepicker.js"></script> -->
+<script src="{% static 'js/scrollax.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>

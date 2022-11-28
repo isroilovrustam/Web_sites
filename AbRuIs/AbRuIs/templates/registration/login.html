@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AbRuIs.uz</title>
+    <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <!-- <link rel="stylesheet" href="styles/navbar.css"> -->
+    <!-- <link rel="stylesheet" href="styles/style.css"> -->
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/shared.css' %}">
+    <!-- <link rel="stylesheet" href="css/animate.css"> -->
+
+    <link rel="stylesheet" href="{% static 'css_2/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css_2/owl.theme.default.min.css' %}">
+</head>
+
+<body>
+<script>
+        // window.location = 'index.html';
+        // alert("Ro'yxatdan o'tasizmi");
+
+
+
+
+
+
+</script>
+<div class="slider-item" style="height: 100vh; margin-top: 0px;" data-stellar-background-ratio="1">
+    <img src="{% static 'img/p-01.jpeg' %}" class="w-100 h-100" style=" position: absolute;">
+    <div class="overlay"></div>
+    <div class="container-fluid p-0 img">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand d-flex align-items-end" href="?page=main">
+                <h1 class="display-6 font-weight-bold">Ab<span class="text-warning">Ru</span>Is</h1>
+            </a>
+            <div class="col-2 offset-md-6 offset-sm-6">
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav mt-2 mt-lg-0 d-flex w-100">
+                        <{% if user.is_authenticated %}
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-primary" href="/">{{user.username}}!</a>
+                        </li>
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-danger" href="{% url 'logout' %}">Chiqish!</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-primary" href="{% url 'signup' %}"><h5>REGISTER</h5></a>
+                        </li>
+                        <li class="nav-item p-2 position-relative">
+                            <a class="btn btn-primary" href="/#Home"><h5>ORQAGA</h5></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-5 offset-sm-2 offset-md-0 p-5 rounded-lg">
+                <form action="{% url 'sign-in' %}" method="post">
+                    {% csrf_token %}
+                    <label>
+                                <b class="text-white">Username</b>
+                    </label>
+                    <span></span>
+                        <input type="text" class="form-control" name="username" required placeholder="Username" autocomplete="off"></h3><br>
+                    <label>
+                                <b class="text-white" >Password</b>
+                    </label><br>
+                    <span></span>
+                        <input type="password" class="form-control" name="password" required placeholder="Password"
+                                   id="inp"
+                                   autocomplete="off"><br>
+                    <button type="submit" class="btn btn-primary btn-block my-1 rounded-pill" name="btn">
+                        Saytga kirish
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function one() {
+            var a = document.getElementById("inp").getAttribute("type");
+            if (a == "password") {
+                document.getElementById("inp").setAttribute("type", "text")
+            }
+            else {
+                document.getElementById("inp").setAttribute("type", "password")
+            }
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

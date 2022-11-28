@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+<script>window.CKEDITOR_BASEPATH = '/my_static/ckeditor/ckeditor/';</script>
+{{ block.super }}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AbRuIs.uz</title>
+    <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <!-- <link rel="stylesheet" href="styles/navbar.css"> -->
+    <!-- <link rel="stylesheet" href="styles/style.css"> -->
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/shared.css' %}">
+    <!-- <link rel="stylesheet" href="css/animate.css"> -->
+
+    <link rel="stylesheet" href="{% static 'css_2/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css_2/owl.theme.default.min.css' %}">
+</head>
+<body>
+<!--<section class="home-slider owl-carousel" id="Home">-->
+        <nav class="navbar navbar-expand-lg navbar-light  ps">
+            <div class=" col-2 offset-md-15 offset-sm-10">
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavId"
+                        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <br>
+                <li>
+                    <a class="btn btn-danger" href="/#Home"> X ORQAGA </a>
+                </li>
+            </div>
+        </nav>
+        <!-- Post -->
+        <h1 class="text-center mt-4" id="Post"> POSTS <br>
+            <span class="line-2"></span>
+        </h1>
+        <div class="row justify-content-center mt-4">
+            {% for post in object_list %}
+            <div class="col-md-2 text-center hv mx-md-4 p-0 portfolio-item filter finance">
+                <a class="portfolio-link text-d" href="{% url 'detail' post.pk %}" data-toggle="modal">
+                    <img src="{{ post.image.url }}" class="w-100">
+                    <p class="mt-4 font-weight-bold text-dark" style="font-size: 19px;">
+                        Rustamjon Isroilov <br>
+                        <span class="line-3"></span><br>
+                        <b class="text-dark" style="font-size: 15px;">{{ post.title }}</b>
+                    </p>
+                    <span class="text-dark">
+            {{post.summary}}
+          </span>
+                </a>
+                <br><br><br><br><br><br>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row justify-content-center mt-4">
+            <li>
+                <a class="btn btn-primary" href="/#Home"> X ORQAGA </a>
+            </li>
+        </div>
+    </div>
+<!--</section>-->
+<!-- /Post -->
+
+<!--/Footer-->
+
+<!--/Footer-->
+</body>
+<!-- <script src="plugin/dist/chart.js"></script> -->
+<!-- <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script> -->
+<script src="{% static 'scripts/jQuery.min.js' %}"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script> -->
+<!-- <script src="scripts/app.js"></script> -->
+
+<script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<!-- <script src="js/jquery.magnific-popup.min.js"></script> -->
+<script src="{% static 'js/aos.js' %}"></script>
+<!-- <script src="js/bootstrap-datepicker.js"></script> -->
+<script src="{% static 'js/scrollax.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
